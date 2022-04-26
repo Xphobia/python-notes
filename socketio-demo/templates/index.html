@@ -14,11 +14,11 @@
     <body>
         <script type="text/javascript">
             $(document).ready(function(){
-                // var socket = io.connect('http://127.0.0.1:8083')
-                var socket = io.connect('http' + '//' + document.domain + ':' + location.port);
+                // var socket = io.connect('http://127.0.0.1:8083');
+                var socket = io.connect(document.location + '//' + document.domain + ':' + location.port);
 
                 socket.on('connect', function(){
-                    socket.send('Client has connected!')
+                    socket.send('Client has connected!');
                 });
 
                 socket.on('message', function(msg){
