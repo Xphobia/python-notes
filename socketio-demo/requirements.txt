@@ -2,3 +2,5 @@
 python-engineio==3.13.2
 flask-socketio==4.3.2
 eventlet
+
+python-nonblock
