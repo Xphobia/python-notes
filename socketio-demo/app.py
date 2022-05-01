@@ -1,26 +1,38 @@
-
 from flask import Flask, render_template
-from flask_socketio import SocketIO, send
-
+from flask_socketio import SocketIO, send, emit
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'mysecret'
+app.config['SECRET_KEY'] = 'secret'
 
 socketio = SocketIO()
-socketio.init_app(app, cors_allowed_origins='*')
+socketio.init_app(app, async_mode='eventlet', cors_allowed_origins='*')
 
 
-socketio.on('connect')
+@socketio.on('connect')
 def connect():
     print('Client connected')
 
+
+@socketio.on('disconnect')
 def disconnect():
     print('Client disconnected')
 
+
 @socketio.on('message')
-def handleMessage(msg):
+def handle_message(msg):
     print('Message: ' + msg)
-    send(msg, broadcast=True)
+    send(msg, broadcast=False)
+
+
+@socketio.on('command', namespace='/shell')
+def handle_command(command):
+    print('Command: ' + command)
+    emit('server_response', 'hello world!')
+
+
+def background_thread():
+    pass
+
 
 @app.route('/')
 def index():
