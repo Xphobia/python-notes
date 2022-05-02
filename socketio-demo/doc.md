@@ -12,4 +12,11 @@
     （1）https://stackoverflow.com/questions/31647081/flask-python-and-socket-io-multithreading-app-is-giving-me-runtimeerror-work
     （2）https://techstalking.com/solved-flask-python-and-socket-io-multithreading-app-is-giving-me-runtimeerror-working-outside-of-request-context/
 
+3. A non-blocking read on a subprocess.PIPE in Python:
+   https://stackoverflow.com/questions/375427/a-non-blocking-read-on-a-subprocess-pipe-in-python/4896288#4896288
+
+
+4. 【Flask】使用Websocket协议（Flask的socketio）进行服务端和客户端通信，动态更新前端内容:
+   https://blog.csdn.net/qq_41427568/article/details/102670035
+
 
